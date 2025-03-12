@@ -1,35 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function Header({ 
+  fullName: initialFullName ="Will Moore", 
+  phone: initialPhone ="+63912-3456-789", 
+  email: initialEmail="wlofranco@fake.com", 
+  address: initialAddress="Olympus Blvd, Gale Crater City, Mars", 
+  linkedin: initialLinkedIn=" www.linkedin.com/in/wilmar-lofranco-ba82a7304" }) {
+    const [modal, setModal] = useState(false)
+
+    const [name, setName] = useState(initialFullName);
+    const [phone, setPhone] = useState(initialPhone);
+    const [email, setEmail] = useState(initialEmail);
+    const [address, setAddress] = useState(initialAddress);
+    const [linkedin, setLinkedIn] = useState(initialLinkedIn);
+
+    const handleModal = () => setModal(true);
+    const handleClose = () => setModal(false);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setModal(false)
+    }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='header'>
+        <h1>{name}</h1>
+        <p>{phone} | {email} | {address} | <a href={linkedin}> LinkedIn </a> </p>
+        <button onClick={handleModal}>Edit</button>
+      
+
+      {modal && (
+        <div className="modal">
+        <form onSubmit={handleSubmit}>
+          <label>
+            Full Name: <br></br>
+            <input 
+              type="text" 
+              name="fullName" 
+              onChange={(e) => setName(e.target.value)}
+              placeholder="John Birador"
+            />
+          </label>
+          <label>
+            Phone No: <br></br>
+            <input 
+              type="tel" 
+              name="phoneNum" 
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Enter your phone number"
+            />
+          </label>
+          <label>
+            E-mail: <br></br>
+            <input 
+              type="email" 
+              name="email" 
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your e-mail"
+            />
+          </label>
+          <label>
+            Address: <br></br>
+            <input 
+              type="text" 
+              name="address" 
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter your address"
+            />
+          </label>
+          <label>
+            LinkedIn Link: <br></br>
+            <input 
+              type="text" 
+              name="linkedin" 
+              onChange={(e) => setLinkedIn(e.target.value)}
+              placeholder="Enter your LinkedIn Link"
+            />
+          </label>
+          <div>
+          <button type="submit">Save</button>
+          <button type="button" onClick={handleClose}>Cancel</button>
+          </div>
+        </form>
+        </div>
+      )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
   )
 }
 
-export default App
+export { Header };
