@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css'
+
 
 function Header({ 
   fullName: initialFullName ="Will Moore", 
