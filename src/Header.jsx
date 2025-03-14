@@ -6,7 +6,9 @@ function Header({
   phone: initialPhone ="+63912-3456-789", 
   email: initialEmail="wlofranco@fake.com", 
   address: initialAddress="Olympus Blvd, Gale Crater City, Mars", 
-  linkedin: initialLinkedIn=" www.linkedin.com/in/wilmar-lofranco-ba82a7304" }) {
+  linkedin: initialLinkedIn=" www.linkedin.com/in/wilmar-lofranco-ba82a7304",
+  summary: initialSummary="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quo, velit iusto, dicta iste ipsam fuga, temporibus consectetur maxime voluptate saepe. Suscipit ducimus maxime eius quos quisquam sequi reprehenderit libero! Quas quo, velit iusto, dicta iste ipsam fuga, temporibus consectetur maxime voluptate saepe" }) {
+
     const [modal, setModal] = useState(false)
 
     const [name, setName] = useState(initialFullName);
@@ -14,6 +16,7 @@ function Header({
     const [email, setEmail] = useState(initialEmail);
     const [address, setAddress] = useState(initialAddress);
     const [linkedin, setLinkedIn] = useState(initialLinkedIn);
+    const [summary, setSummary] = useState(initialSummary);
 
     const handleModal = () => setModal(true);
     const handleClose = () => setModal(false);
@@ -27,6 +30,7 @@ function Header({
       <div className='header'>
         <h1>{name}</h1>
         <p>{phone} | {email} | {address} | <a href={linkedin}> LinkedIn </a> </p>
+        <p className='summary'>{summary}</p>
         <button onClick={handleModal}>Edit</button>
       
 
@@ -76,6 +80,16 @@ function Header({
               name="linkedin" 
               onChange={(e) => setLinkedIn(e.target.value)}
               placeholder="Enter your LinkedIn Link"
+            />
+          </label>
+          <label>
+            Summary: <br></br>
+            <textarea
+              rows="4"
+              cols="80" 
+              name="summary" 
+              onChange={(e) => setSummary(e.target.value)}
+              placeholder="Brief description of yourself"
             />
           </label>
           <div>
