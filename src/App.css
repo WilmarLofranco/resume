@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -181,5 +181,56 @@ form button {
 .exp-description {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  
+}
+
+h2 {
+  text-align: start;
+}
+
+.exp-description div {
+  text-align: start;
+}
+
+.experience-item div li {
+  text-align: start;
+  padding-left: 30px;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+.exp-description div p {
+  margin: 5px;
+}
+
+.exp-item-btn {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.exp-item-btn button {
+padding: 5px;
+font-size: small;
+}
+
+.experience-item {
+  padding: 5px 20px;
+  margin-right: 0;
+}
+
+.education-item {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.modal-experience {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
 }
