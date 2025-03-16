@@ -217,6 +217,7 @@ font-size: small;
 }
 
 .experience-item {
+  position: relative;
   padding: 5px 20px;
   margin-right: 0;
 }

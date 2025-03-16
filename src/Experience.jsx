@@ -125,8 +125,8 @@ function Experience ({experienceData, onDelete}) {
                             <h4>Roles</h4>
                             {formData.roles.map((role, index) => (
                                 <div key={index} style={{ display: "flex", gap: "5px" }}>
-                                    <input
-                                        type="text"
+                                    <textarea
+                                        cols={40}
                                         value={role}
                                         onChange={(e) => {
                                             const updatedRoles = [...formData.roles];
